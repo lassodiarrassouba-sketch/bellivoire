@@ -1,151 +1,480 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bellivoire – Accueil</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Header with logo and navigation -->
-    <header>
-      <div class="logo">
-        <!-- The logo uses the outline of Côte d'Ivoire as requested. Alt text aids accessibility -->
-        <img src="assets/logo.svg" alt="Logo Bellivoire – carte de la Côte d'Ivoire" />
-        <span>Bellivoire</span>
-      </div>
-      <!-- Hamburger menu toggler (visible on small screens) -->
-      <div class="nav-toggle" aria-label="Ouvrir le menu" role="button">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav>
-        <a href="index.html">Accueil</a>
-        <a href="blog.html">Blog</a>
-        <a href="#about">À propos</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BELLIVOIRE — découvrez les régions, les cultures et les patrimoines de Côte d’Ivoire.">
+  <meta name="theme-color" content="#083b32">
+  <title>BELLIVOIRE — Régions, cultures et grandes villes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <!-- Hero section -->
-    <section class="hero">
-      <div class="content">
-        <h1>Bienvenue sur Bellivoire</h1>
-        <p>Votre source d’information et d’inspiration en Côte d’Ivoire</p>
+  <header class="site-header" id="accueil">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="brand" href="#accueil" aria-label="BELLIVOIRE — accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-mark__b">B</span>
+          <span class="brand-mark__dot"></span>
+        </span>
+        <span class="brand-name">BELLIVOIRE</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link active" href="#accueil">Accueil</a>
+        <a class="nav-link" href="#regions">Régions</a>
+        <a class="nav-link" href="#villes">Villes</a>
+        <a class="nav-link" href="#patrimoine">Patrimoine</a>
+        <a class="nav-link" href="#saveurs">Saveurs</a>
+        <a class="button button--small button--light" href="#bibliotheque">Découvrir</a>
+      </div>
+    </nav>
+
+    <div class="hero container">
+      <div class="hero-copy reveal">
+        <p class="version-badge">Version enrichie <strong>58+ contenus</strong></p>
+        <p class="eyebrow"><span></span> Culture • Patrimoine • Transmission</p>
+        <h1>La Côte d’Ivoire,<br><em>région par région.</em></h1>
+        <p class="hero-intro">Un voyage vivant au cœur des peuples, des savoir-faire et des paysages qui font la richesse ivoirienne.</p>
+        <div class="hero-actions">
+          <a class="button button--accent" href="#regions">Découvrir les régions <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#cultures"><span class="play" aria-hidden="true">▶</span> Voir les histoires</a>
+        </div>
+        <section class="hero-stats" aria-label="Aperçu du contenu">
+          <div><strong>5</strong><span>grands espaces</span></div>
+          <div><strong>60+</strong><span>peuples et cultures</span></div>
+          <div><strong>5</strong><span>sites du patrimoine mondial</span></div>
+        </section>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="map-orbit map-orbit--one"></div>
+        <div class="map-orbit map-orbit--two"></div>
+        <svg class="ci-map" viewBox="0 0 380 430" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Carte de la Côte d’Ivoire</title>
+          <desc id="map-desc">Une carte décorative avec cinq repères correspondant aux grands espaces culturels présentés.</desc>
+          <defs>
+            <linearGradient id="mapGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff8e7"/>
+              <stop offset="1" stop-color="#f1d5a6"/>
+            </linearGradient>
+            <filter id="mapShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#001d18" flood-opacity=".35"/>
+            </filter>
+            <clipPath id="mapClip">
+              <path d="M323.618 346.869 322.253 349.039 315.041 347.624 316.601 345.831ZM58.136 71.749 63.789 70.507 71.196 61.91 81.332 57.515 86.985 59.617 92.053 66.496 101.799 68.311 109.595 72.799 113.494 70.985 112.129 66.878 117.002 61.719 128.308 61.528 129.282 45.851 135.325 48.433 143.901 49.198 142.537 44.99 151.698 40.877 153.452 47.859 152.868 50.058 155.597 58.661 152.868 65.35 159.495 69.648 166.512 67.547 174.309 59.33 189.903 56.559 199.259 63.439 210.564 64.585 217.386 73.659 221.675 84.54 230.056 89.501 240.387 96.464 248.184 98.371 256.175 100.183 264.362 92.745 280.735 86.544 296.914 84.922 312.702 87.212 319.719 89.024 325.957 96.083 335.118 108.095 340.966 112.287 345.254 111.906 344.474 119.051 342.135 129.621 345.059 134.285 348.568 144.37 352.271 163.386 355 178.967 349.347 182.29 346.229 189.126 339.796 194.061 333.949 207.628 329.271 230.57 326.347 239.286 319.135 248.188 315.626 255.478 315.041 264.09 317.38 280.551 325.372 303.524 330.44 318.923 338.042 320.245 341.551 330.35 339.796 339.507 338.237 345.547 331.22 347.435 324.787 345.264 319.135 342.81 315.431 335.637 309.584 346.774 281.125 341.867 267.676 337.053 244.285 338.657 241.167 341.017 270.794 339.884 272.159 341.395 238.438 344.509 221.675 345.831 218.751 342.81 204.716 342.433 200.233 345.642 216.607 346.774 189.513 349.039 162.614 356.399 136.299 366.776 108.621 378.564 82.307 389.123 80.552 377.149 80.162 358.38 84.061 348.001 88.544 336.203 90.103 323.929 87.18 308.154 77.239 304.468 68.467 297.38 63.594 286.698 53.848 283.199 42.153 282.064 33.187 274.309 25 271.849 39.619 255.762 41.568 240.896 35.526 222.514 31.237 214.456 45.077 214.551 51.314 203.454 57.162 186.088 52.679 181.341 43.712 176.497 44.687 165.477 60.086 164.242 69.052 167.282 74.9 167.948 72.755 155.212 60.281 147.319 60.865 136.759 69.637 131.144 62.035 125.241 63.204 112.764 52.874 112.002 49.755 98.562 49.17 82.154Z"/>
+            </clipPath>
+          </defs>
+          <path class="map-shape" filter="url(#mapShadow)" fill="url(#mapGradient)" d="M323.618 346.869 322.253 349.039 315.041 347.624 316.601 345.831ZM58.136 71.749 63.789 70.507 71.196 61.91 81.332 57.515 86.985 59.617 92.053 66.496 101.799 68.311 109.595 72.799 113.494 70.985 112.129 66.878 117.002 61.719 128.308 61.528 129.282 45.851 135.325 48.433 143.901 49.198 142.537 44.99 151.698 40.877 153.452 47.859 152.868 50.058 155.597 58.661 152.868 65.35 159.495 69.648 166.512 67.547 174.309 59.33 189.903 56.559 199.259 63.439 210.564 64.585 217.386 73.659 221.675 84.54 230.056 89.501 240.387 96.464 248.184 98.371 256.175 100.183 264.362 92.745 280.735 86.544 296.914 84.922 312.702 87.212 319.719 89.024 325.957 96.083 335.118 108.095 340.966 112.287 345.254 111.906 344.474 119.051 342.135 129.621 345.059 134.285 348.568 144.37 352.271 163.386 355 178.967 349.347 182.29 346.229 189.126 339.796 194.061 333.949 207.628 329.271 230.57 326.347 239.286 319.135 248.188 315.626 255.478 315.041 264.09 317.38 280.551 325.372 303.524 330.44 318.923 338.042 320.245 341.551 330.35 339.796 339.507 338.237 345.547 331.22 347.435 324.787 345.264 319.135 342.81 315.431 335.637 309.584 346.774 281.125 341.867 267.676 337.053 244.285 338.657 241.167 341.017 270.794 339.884 272.159 341.395 238.438 344.509 221.675 345.831 218.751 342.81 204.716 342.433 200.233 345.642 216.607 346.774 189.513 349.039 162.614 356.399 136.299 366.776 108.621 378.564 82.307 389.123 80.552 377.149 80.162 358.38 84.061 348.001 88.544 336.203 90.103 323.929 87.18 308.154 77.239 304.468 68.467 297.38 63.594 286.698 53.848 283.199 42.153 282.064 33.187 274.309 25 271.849 39.619 255.762 41.568 240.896 35.526 222.514 31.237 214.456 45.077 214.551 51.314 203.454 57.162 186.088 52.679 181.341 43.712 176.497 44.687 165.477 60.086 164.242 69.052 167.282 74.9 167.948 72.755 155.212 60.281 147.319 60.865 136.759 69.637 131.144 62.035 125.241 63.204 112.764 52.874 112.002 49.755 98.562 49.17 82.154Z"/>
+          <g clip-path="url(#mapClip)" opacity=".17" stroke="#083b32" stroke-width="2" fill="none">
+            <path d="M-10 95 Q110 30 220 100 T420 90"/>
+            <path d="M-10 155 Q130 85 230 160 T420 145"/>
+            <path d="M-10 220 Q115 150 245 225 T420 210"/>
+            <path d="M-10 285 Q115 215 245 292 T420 275"/>
+            <path d="M-10 345 Q115 280 245 345 T420 330"/>
+          </g>
+          <g class="map-pins" aria-hidden="true">
+            <g transform="translate(185 105)"><circle r="15"/><circle class="pulse" r="26"/><text x="24" y="5">NORD</text></g>
+            <g transform="translate(205 215)"><circle r="15"/><circle class="pulse" r="26"/><text x="24" y="5">CENTRE</text></g>
+            <g transform="translate(286 245)"><circle r="15"/><circle class="pulse" r="26"/><text x="24" y="5">EST</text></g>
+            <g transform="translate(105 248)"><circle r="15"/><circle class="pulse" r="26"/><text x="24" y="5">OUEST</text></g>
+            <g transform="translate(215 337)"><circle r="15"/><circle class="pulse" r="26"/><text x="24" y="5">SUD</text></g>
+          </g>
+        </svg>
+        <div class="floating-note floating-note--top"><span>✦</span> Identité vivante</div>
+        <div class="floating-note floating-note--bottom"><span>225</span> horizons à découvrir</div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span></span> Faites défiler</div>
+  </header>
+
+  <main id="contenu">
+    <section class="section regions-section" id="regions">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow eyebrow--dark"><span></span> Explorer le territoire</p>
+            <h2>Cinq espaces,<br><em>mille visages.</em></h2>
+          </div>
+          <p>Choisissez une région pour découvrir un aperçu de ses paysages, de ses peuples et de ses expressions culturelles.</p>
+        </div>
+
+        <div class="region-explorer reveal">
+          <div class="region-tabs" role="tablist" aria-label="Choisir un espace culturel">
+            <button class="region-tab" type="button" role="tab" aria-selected="false" data-region="nord"><span>01</span> Nord</button>
+            <button class="region-tab" type="button" role="tab" aria-selected="false" data-region="centre"><span>02</span> Centre</button>
+            <button class="region-tab" type="button" role="tab" aria-selected="false" data-region="est"><span>03</span> Est</button>
+            <button class="region-tab active" type="button" role="tab" aria-selected="true" data-region="ouest"><span>04</span> Ouest</button>
+            <button class="region-tab" type="button" role="tab" aria-selected="false" data-region="sud"><span>05</span> Sud</button>
+          </div>
+
+          <article class="region-panel" id="region-panel" role="tabpanel" aria-live="polite">
+            <div class="region-art region-art--ouest" id="region-art" aria-hidden="true">
+              <div class="sun"></div>
+              <div class="mountain mountain--back"></div>
+              <div class="mountain mountain--front"></div>
+              <div class="land"></div>
+              <div class="pattern-disc"><span></span><span></span><span></span></div>
+              <p id="region-number">04</p>
+            </div>
+            <div class="region-copy">
+              <p class="region-place" id="region-place">MAN • GUIGLO • TONKPI</p>
+              <h3 id="region-title">Montagnes, forêts<br>et masques</h3>
+              <p id="region-description">À l’Ouest, reliefs spectaculaires et forêts denses entourent des traditions où les masques, les danses et la sculpture occupent une place majeure.</p>
+              <ul class="tag-list" id="region-tags" aria-label="Thèmes associés">
+                <li>Masques Dan</li><li>Mont Nimba</li><li>Danses Wê</li>
+              </ul>
+              <dl class="region-details" id="region-details">
+                <div><dt>Peuples &amp; langues</dt><dd id="region-peoples">Dan, Wê, Toura</dd></div>
+                <div><dt>Paysages</dt><dd id="region-landscapes">Montagnes, cascades, forêts</dd></div>
+                <div><dt>À découvrir</dt><dd id="region-heritage">Masques, ponts de lianes, artisanat</dd></div>
+                <div><dt>Saveurs</dt><dd id="region-flavours">Riz, sauces de feuilles, foutou</dd></div>
+              </dl>
+              <div class="region-cities">
+                <p>Grandes villes de la région</p>
+                <ul id="region-cities" aria-live="polite">
+                  <li><strong>Man</strong><span>Montagnes, cascades et cultures des masques</span></li>
+                  <li><strong>Daloa</strong><span>Carrefour commercial et terres du cacao</span></li>
+                  <li><strong>Gagnoa</strong><span>Grand foyer de la culture bété</span></li>
+                  <li><strong>Guiglo</strong><span>Ville forestière et traditions wê</span></li>
+                </ul>
+              </div>
+              <a class="arrow-link" href="#villes">Voir les portraits détaillés des villes <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- Latest posts preview -->
-    <section class="section light">
-      <h2>Derniers articles</h2>
-      <div class="blog-preview">
-        <!-- Article 1 -->
-        <article class="blog-card">
-          <img src="assets/post1.png" alt="Illustration abstraite orange et verte" />
-          <div class="blog-card-content">
-            <span class="meta">1 mai 2025 • Actualités</span>
-            <h3>Bienvenue sur Bellivoire</h3>
-            <p>
-              Découvrez l’histoire et la mission de notre nouveau blog dédié à la
-              valorisation du savoir‑faire ivoirien et au partage des
-              opportunités locales.
-            </p>
-            <a class="read-more" href="posts/bienvenue.html">Lire la suite</a>
+    <section class="section cities-section" id="villes">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow eyebrow--dark"><span></span> Carnet urbain</p>
+            <h2>Les grandes villes,<br><em>portes des territoires.</em></h2>
           </div>
-        </article>
-        <!-- Article 2 -->
-        <article class="blog-card">
-          <img src="assets/post2.png" alt="Motif culturel abstrait" />
-          <div class="blog-card-content">
-            <span class="meta">12 avril 2025 • Culture</span>
-            <h3>Culture ivoirienne : cuisine et traditions</h3>
-            <p>
-              Plongez dans la richesse culinaire et les traditions qui font la
-              singularité de la Côte d’Ivoire. De l’attiéké au zouglou, nos
-              racines sont à l’honneur.
-            </p>
-            <a class="read-more" href="posts/culture.html">Lire la suite</a>
+          <p>Des métropoles lagunaires aux cités de savane, explorez douze villes qui racontent chacune une facette de la Côte d’Ivoire.</p>
+        </div>
+
+        <div class="city-tools reveal">
+          <label class="city-search"><span aria-hidden="true">⌕</span><input id="city-search" type="search" placeholder="Rechercher une ville, un lieu, une culture…"><span class="sr-only">Rechercher dans les villes</span></label>
+          <div class="city-filters" role="group" aria-label="Filtrer les villes par zone">
+            <button class="city-filter active" type="button" data-city-filter="all">Toutes</button>
+            <button class="city-filter" type="button" data-city-filter="sud">Sud</button>
+            <button class="city-filter" type="button" data-city-filter="centre">Centre</button>
+            <button class="city-filter" type="button" data-city-filter="nord">Nord</button>
+            <button class="city-filter" type="button" data-city-filter="est">Est</button>
+            <button class="city-filter" type="button" data-city-filter="ouest">Ouest</button>
           </div>
-        </article>
-        <!-- Article 3 -->
-        <article class="blog-card">
-          <img src="assets/post3.png" alt="Illustration abstraite évoquant la croissance" />
-          <div class="blog-card-content">
-            <span class="meta">20 mars 2025 • Économie</span>
-            <h3>Actualités économiques en Côte d’Ivoire</h3>
-            <p>
-              Analyse des dernières tendances économiques, des opportunités
-              d’investissement et des projets majeurs qui façonnent notre pays.
-            </p>
-            <a class="read-more" href="posts/economie.html">Lire la suite</a>
-          </div>
-        </article>
+          <p class="city-result" id="city-result" aria-live="polite">12 villes présentées</p>
+        </div>
+
+        <div class="city-grid" id="city-grid">
+          <article class="city-card city-card--lagoon reveal" data-city-key="abidjan" data-city-zone="sud" data-city-search="abidjan plateau cocody treichville yopougon banco musée civilisations lagune atchan ébrié">
+            <div class="city-card__visual"><span>ABJ</span><i></i><strong>01</strong></div>
+            <div class="city-card__content"><p>District autonome • Sud</p><h3>Abidjan</h3><h4>Lagune, créativité et mouvement</h4><p>Métropole économique et culturelle, Abidjan rassemble quartiers d’affaires, scènes artistiques, marchés populaires et espaces naturels.</p><ul><li>Musée des Civilisations</li><li>Parc national du Banco</li><li>Plateau, Treichville et Cocody</li></ul><div><span>Culture urbaine</span><span>Lagune</span><span>Gastronomie</span></div></div>
+          </article>
+
+          <article class="city-card city-card--capital reveal" data-city-key="yamoussoukro" data-city-zone="centre" data-city-search="yamoussoukro capitale basilique paix fondation houphouët boigny lacs baoulé">
+            <div class="city-card__visual"><span>YAK</span><i></i><strong>02</strong></div>
+            <div class="city-card__content"><p>District autonome • Centre</p><h3>Yamoussoukro</h3><h4>Monuments et grands horizons</h4><p>Capitale politique aux larges avenues, Yamoussoukro associe architecture monumentale, mémoire nationale et traditions baoulé.</p><ul><li>Basilique Notre-Dame de la Paix</li><li>Fondation Félix Houphouët-Boigny</li><li>Lacs et grandes avenues</li></ul><div><span>Architecture</span><span>Mémoire</span><span>Baoulé</span></div></div>
+          </article>
+
+          <article class="city-card city-card--crossroads reveal" data-city-key="bouake" data-city-zone="centre" data-city-search="bouaké gbêkê baoulé marché commerce carrefour centre">
+            <div class="city-card__visual"><span>BKE</span><i></i><strong>03</strong></div>
+            <div class="city-card__content"><p>Gbêkê • Centre</p><h3>Bouaké</h3><h4>Ville-carrefour du pays</h4><p>Au croisement des grands axes, Bouaké est une ville de commerce, de rencontres et de brassage culturel au cœur du pays baoulé.</p><ul><li>Grand marché et artisanat</li><li>Scène musicale et culturelle</li><li>Saveurs du Centre</li></ul><div><span>Commerce</span><span>Rencontres</span><span>Baoulé</span></div></div>
+          </article>
+
+          <article class="city-card city-card--savanna reveal" data-city-key="korhogo" data-city-zone="nord" data-city-search="korhogo poro sénoufo waraniéné tissage mont korhogo musée péléforo gbon coulibaly toile">
+            <div class="city-card__visual"><span>KGO</span><i></i><strong>04</strong></div>
+            <div class="city-card__content"><p>Poro • Nord</p><h3>Korhogo</h3><h4>Capitale des savoir-faire du Nord</h4><p>Korhogo rayonne par l’art sénoufo, les toiles peintes, la sculpture, le tissage et les paysages de savane qui l’entourent.</p><ul><li>Village de tisserands de Waraniéné</li><li>Musée Péléforo Gbon Coulibaly</li><li>Mont Korhogo et ateliers d’art</li></ul><div><span>Sénoufo</span><span>Tissage</span><span>Toiles</span></div></div>
+          </article>
+
+          <article class="city-card city-card--ocean reveal" data-city-key="san-pedro" data-city-zone="sud" data-city-search="san-pédro san pedro port plage océan bas-sassandra grand béréby kru">
+            <div class="city-card__visual"><span>SPY</span><i></i><strong>05</strong></div>
+            <div class="city-card__content"><p>San-Pédro • Sud-Ouest</p><h3>San-Pédro</h3><h4>Entre port, forêt et océan</h4><p>Deuxième grand port du pays, San-Pédro ouvre sur les plages du Sud-Ouest, les cultures krou et les paysages forestiers du Bas-Sassandra.</p><ul><li>Front de mer et plages</li><li>Port et baie de San-Pédro</li><li>Route de Grand-Béréby</li></ul><div><span>Océan</span><span>Port</span><span>Krou</span></div></div>
+          </article>
+
+          <article class="city-card city-card--mountain reveal" data-city-key="man" data-city-zone="ouest" data-city-search="man tonkpi dent de man cascade mont tonkoui dan wê masques montagne pont liane">
+            <div class="city-card__visual"><span>MAN</span><i></i><strong>06</strong></div>
+            <div class="city-card__content"><p>Tonkpi • Ouest</p><h3>Man</h3><h4>La ville aux dix-huit montagnes</h4><p>Reliefs, cascades et traditions des masques donnent à Man une identité spectaculaire au cœur des cultures dan, toura et wê.</p><ul><li>Dent de Man et mont Tonkoui</li><li>Cascades naturelles</li><li>Masques et ponts de lianes</li></ul><div><span>Montagnes</span><span>Masques</span><span>Nature</span></div></div>
+          </article>
+
+          <article class="city-card city-card--forest reveal" data-city-key="daloa" data-city-zone="ouest" data-city-search="daloa haut-sassandra antilopes bété gouro cacao café carrefour">
+            <div class="city-card__visual"><span>DLA</span><i></i><strong>07</strong></div>
+            <div class="city-card__content"><p>Haut-Sassandra • Centre-Ouest</p><h3>Daloa</h3><h4>Carrefour de la boucle du cacao</h4><p>Surnommée la cité des antilopes, Daloa relie les territoires forestiers et constitue un grand centre d’échanges du Centre-Ouest.</p><ul><li>Marchés et vie commerçante</li><li>Cultures bété et gouro</li><li>Terroirs du cacao et du café</li></ul><div><span>Forêt</span><span>Cacao</span><span>Carrefour</span></div></div>
+          </article>
+
+          <article class="city-card city-card--cocoa reveal" data-city-key="gagnoa" data-city-zone="ouest" data-city-search="gagnoa gôh bété danse culture cacao forêt centre-ouest">
+            <div class="city-card__visual"><span>GAG</span><i></i><strong>08</strong></div>
+            <div class="city-card__content"><p>Gôh • Centre-Ouest</p><h3>Gagnoa</h3><h4>Mémoire bété et terres fertiles</h4><p>Gagnoa est un foyer majeur de la culture bété, entouré de terres agricoles où cacao, café et cultures vivrières façonnent les paysages.</p><ul><li>Danses et expressions bété</li><li>Marchés et artisanat local</li><li>Paysages agricoles du Gôh</li></ul><div><span>Bété</span><span>Danse</span><span>Cacao</span></div></div>
+          </article>
+
+          <article class="city-card city-card--heritage reveal" data-city-key="grand-bassam" data-city-zone="sud" data-city-search="grand-bassam bassam patrimoine unesco quartier france nzima musée costume plage">
+            <div class="city-card__visual"><span>GBS</span><i></i><strong>09</strong></div>
+            <div class="city-card__content"><p>Sud-Comoé • Sud-Est</p><h3>Grand-Bassam</h3><h4>Histoire, architecture et océan</h4><p>Première capitale coloniale du pays, Grand-Bassam conjugue le Quartier France, la vie du village N’zima et une longue façade maritime.</p><ul><li>Quartier France, classé UNESCO</li><li>Musée national du Costume</li><li>Village N’zima et plage</li></ul><div><span>UNESCO</span><span>N’zima</span><span>Architecture</span></div></div>
+          </article>
+
+          <article class="city-card city-card--earth reveal" data-city-key="bondoukou" data-city-zone="est" data-city-search="bondoukou gontougo mille mosquées abron koulango lobi quartiers anciens architecture terre">
+            <div class="city-card__visual"><span>BDK</span><i></i><strong>10</strong></div>
+            <div class="city-card__content"><p>Gontougo • Nord-Est</p><h3>Bondoukou</h3><h4>Ville ancienne et carrefour de cultures</h4><p>Connue comme la ville aux mille mosquées, Bondoukou porte les traces d’anciens échanges et d’une diversité abron, koulango et mandingue.</p><ul><li>Quartiers anciens et mosquées</li><li>Traditions de cour abron</li><li>Architecture et artisanat</li></ul><div><span>Histoire</span><span>Abron</span><span>Terre</span></div></div>
+          </article>
+
+          <article class="city-card city-card--royal reveal" data-city-key="abengourou" data-city-zone="est" data-city-search="abengourou indénié djuablin agni palais royal igname plantations est">
+            <div class="city-card__visual"><span>ABG</span><i></i><strong>11</strong></div>
+            <div class="city-card__content"><p>Indénié-Djuablin • Est</p><h3>Abengourou</h3><h4>Ville royale de l’Indénié</h4><p>Abengourou est un important centre de la culture agni, où autorité traditionnelle, fêtes de l’igname et économie de plantation se rencontrent.</p><ul><li>Palais royal de l’Indénié</li><li>Fêtes et traditions agni</li><li>Plantations de café et cacao</li></ul><div><span>Agni</span><span>Royauté</span><span>Igname</span></div></div>
+          </article>
+
+          <article class="city-card city-card--manding reveal" data-city-key="odienne" data-city-zone="nord" data-city-search="odienné denguélé kabadougou malinké mandingue mosquée savane artisanat nord-ouest">
+            <div class="city-card__visual"><span>ODN</span><i></i><strong>12</strong></div>
+            <div class="city-card__content"><p>Kabadougou • Nord-Ouest</p><h3>Odienné</h3><h4>Culture mandingue et grands espaces</h4><p>Au cœur du Denguélé, Odienné est marquée par la culture malinké, l’histoire des routes du Nord-Ouest et les vastes paysages de savane.</p><ul><li>Mosquée et quartiers historiques</li><li>Musique et traditions malinké</li><li>Savanes et artisanat local</li></ul><div><span>Malinké</span><span>Savane</span><span>Histoire</span></div></div>
+          </article>
+        </div>
+        <p class="city-empty" id="city-empty" hidden>Aucune ville ne correspond à votre recherche.</p>
+        <p class="editorial-note">Ce découpage est éditorial : il relie les villes aux cinq grands espaces culturels présentés sur BELLIVOIRE et ne remplace pas le découpage administratif officiel.</p>
       </div>
     </section>
 
-<div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/fete-masque.jpg" alt="Fête des Masques" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Fête des Masques à Man</h3>
-    <p>La fête des masques est un événement culturel majeur dans la région de Man, célébrant les traditions et les croyances des peuples Dan et Yacouba.</p>
-  </div>
+    <dialog class="city-dialog" id="city-dialog" aria-labelledby="city-dialog-title">
+      <button class="city-dialog__close" type="button" id="city-dialog-close" aria-label="Fermer la fiche de la ville">×</button>
+      <div class="city-dialog__hero" id="city-dialog-hero">
+        <p id="city-dialog-zone">Sud • Lagunes</p>
+        <h2 id="city-dialog-title">Abidjan</h2>
+        <p id="city-dialog-tagline">Lagune, créativité et mouvement</p>
+        <span id="city-dialog-code">ABJ</span>
+      </div>
+      <div class="city-dialog__body">
+        <div class="city-dialog__intro">
+          <p class="eyebrow eyebrow--dark"><span></span> Portrait de ville</p>
+          <p id="city-dialog-intro"></p>
+          <p id="city-dialog-story"></p>
+        </div>
+        <dl class="city-facts" id="city-dialog-facts"></dl>
+        <div class="city-chapters">
+          <section><span>01</span><h3>Lieux à découvrir</h3><ul id="city-dialog-places"></ul></section>
+          <section><span>02</span><h3>Culture &amp; identité</h3><ul id="city-dialog-culture"></ul></section>
+          <section><span>03</span><h3>Saveurs &amp; expériences</h3><ul id="city-dialog-flavours"></ul></section>
+          <section><span>04</span><h3>Autour de la ville</h3><ul id="city-dialog-nearby"></ul></section>
+        </div>
+        <aside class="city-tip"><span aria-hidden="true">✦</span><div><strong>Conseil BELLIVOIRE</strong><p id="city-dialog-tip"></p></div></aside>
+      </div>
+    </dialog>
 
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/attieke-poisson.jpg" alt="Attiéké poisson" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Attiéké Poisson : Un Plat Ivoirien Incontournable</h3>
-    <p>L’attiéké accompagné de poisson braisé est l’un des plats les plus populaires en Côte d’Ivoire, originaire du peuple Ébrié.</p>
-  </div>
+    <section class="section heritage-section" id="patrimoine">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow eyebrow--dark"><span></span> Repères majeurs</p>
+            <h2>Un patrimoine<br><em>reconnu dans le monde.</em></h2>
+          </div>
+          <p>Des forêts primaires aux villes historiques, la Côte d’Ivoire compte cinq biens inscrits sur la Liste du patrimoine mondial de l’UNESCO.</p>
+        </div>
 
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/attieke-poisson2.jpg" alt="Attiéké poisson" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Attiéké Poisson : Un Plat Ivoirien Incontournable</h3>
-    <p>L’attiéké accompagné de poisson braisé est l’un des plats les plus populaires en Côte d’Ivoire, originaire du peuple Ébrié.</p>
-  </div>
+        <div class="heritage-grid">
+          <article class="heritage-card heritage-card--bassam reveal">
+            <span class="heritage-year">2012</span><p>Patrimoine culturel</p>
+            <h3>Ville historique de Grand-Bassam</h3>
+            <p>Ancienne capitale et cité portuaire, elle conserve un urbanisme colonial remarquable et le quartier traditionnel N’zima.</p>
+            <a href="https://whc.unesco.org/fr/list/1322" target="_blank" rel="noreferrer">Fiche UNESCO <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="heritage-card heritage-card--tai reveal">
+            <span class="heritage-year">1982</span><p>Patrimoine naturel</p>
+            <h3>Parc national de Taï</h3>
+            <p>L’un des derniers grands blocs de forêt tropicale primaire d’Afrique de l’Ouest, refuge d’une biodiversité exceptionnelle.</p>
+            <a href="https://whc.unesco.org/fr/list/195" target="_blank" rel="noreferrer">Fiche UNESCO <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="heritage-card heritage-card--comoe reveal">
+            <span class="heritage-year">1983</span><p>Patrimoine naturel</p>
+            <h3>Parc national de la Comoé</h3>
+            <p>Un vaste territoire de transition entre savane et forêt, traversé par le fleuve Comoé et riche d’une grande diversité végétale.</p>
+            <a href="https://whc.unesco.org/fr/list/227" target="_blank" rel="noreferrer">Fiche UNESCO <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="heritage-card heritage-card--nimba reveal">
+            <span class="heritage-year">1981</span><p>Patrimoine naturel</p>
+            <h3>Réserve naturelle du mont Nimba</h3>
+            <p>À la frontière de la Guinée et de la Côte d’Ivoire, le massif abrite des paysages et des espèces remarquables.</p>
+            <a href="https://whc.unesco.org/fr/list/155" target="_blank" rel="noreferrer">Fiche UNESCO <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="heritage-card heritage-card--mosque reveal">
+            <span class="heritage-year">2021</span><p>Patrimoine culturel</p>
+            <h3>Mosquées de style soudanais du Nord</h3>
+            <p>Huit édifices en terre illustrent une architecture adaptée au climat et transmise par des communautés d’artisans.</p>
+            <a href="https://whc.unesco.org/fr/list/1648" target="_blank" rel="noreferrer">Fiche UNESCO <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
 
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/akan.jpg" alt="Placali" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Placali : Un Plat Ivoirien Incontournable</h3>
-    <p>Le Placali accompagné de sauce klala est l’un des plats les plus populaires en Côte d’Ivoire, originaire du peuple Akan.</p>
-  </div>
-
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/krou.jpg" alt="Fruits de mer" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Fruits de Mer : Un Plat Ivoirien Incontournable</h3>
-    <p>Fruits de mer accompagné de l’attiéké est l’un des plats les plus populaires en Côte d’Ivoire, originaire du peuple Krou.</p>
-  </div>
-
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/malinke.jpg" alt="Haricot et Igname" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Haricot et Igname : Cultures Ivoiriennes Incontournables</h3>
-    <p>Le Haricot et l'Igname sont des cultures très populaires en Côte d’Ivoire, originaires du peuple Mandé du Nord.</p>
-  </div>
-
-  <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; margin-top: 20px;">
-    <img src="images/senoufo.jpg" alt="Haricot et Igname" style="width: 100%; border-radius: 8px;">
-    <h3 style="color: #27ae60;">Haricot et Igname : Cultures Ivoiriennes Incontournables</h3>
-    <p>Le Haricot et l'Igname sont des cultures très populaires en Côte d’Ivoire, originaires du peuple Sénoufo.</p>
-  </div>
-</section>
-
-    <!-- About section -->
-    <section class="section dark" id="about">
-      <h2>À propos de Bellivoire</h2>
-      <p class="text-center" style="max-width: 700px; margin: 0 auto">
-        Bellivoire est une plateforme dédiée à la promotion de la culture, de
-        l’entrepreneuriat et de l’actualité ivoirienne. Nous croyons en la
-        puissance des histoires locales et en la capacité de nos jeunes
-        entrepreneurs à façonner l’avenir. Notre blog propose des articles
-        soignés pour vous informer, vous divertir et vous inspirer à participer
-        activement au développement de la Côte d’Ivoire.
-      </p>
+        <div class="living-heritage reveal">
+          <div class="living-heritage__intro">
+            <p class="eyebrow eyebrow--dark"><span></span> Patrimoine vivant</p>
+            <h3>Des gestes, des rythmes et des savoirs transmis.</h3>
+            <p>Le patrimoine ne se limite pas aux monuments : il vit dans les communautés, les cérémonies, la musique et les métiers d’art.</p>
+          </div>
+          <div class="living-list">
+            <a href="https://ich.unesco.org/fr/RL/le-gbofe-d-afounkaha-la-musique-des-trompes-traversieres-de-la-communaute-tagbana-00005" target="_blank" rel="noreferrer"><span>2008</span><strong>Gbofe d’Afounkaha</strong><small>Musique, chants et danses tagbana</small></a>
+            <a href="https://ich.unesco.org/fr/RL/le-zaouli-musique-et-danse-populaires-des-communautes-gouro-de-cote-d-ivoire-01255" target="_blank" rel="noreferrer"><span>2017</span><strong>Zaouli</strong><small>Musique et danse des communautés gouro</small></a>
+            <a href="https://ich.unesco.org/fr/RL/les-savoir-faire-traditionnels-lies-au-tissage-du-pagne-en-cote-d-ivoire-01949" target="_blank" rel="noreferrer"><span>2023</span><strong>Tissage du pagne</strong><small>Techniques, motifs et transmission</small></a>
+            <a href="https://ich.unesco.org/fr/RL/les-savoir-faire-lies-a-la-fabrication-de-l-attieke-en-cote-d-ivoire-02086" target="_blank" rel="noreferrer"><span>2024</span><strong>Fabrication de l’attiéké</strong><small>Savoir-faire culinaire ivoirien</small></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer/contact section -->
-    <footer id="contact">
-      <p>Contactez‑nous : <a href="mailto:info@bellivoire.com">info@bellivoire.com</a></p>
-      <p>© 2025 Bellivoire. Tous droits réservés.</p>
-    </footer>
+    <section class="section flavours-section" id="saveurs">
+      <div class="container">
+        <div class="flavours-heading reveal">
+          <p class="eyebrow"><span></span> À table</p>
+          <h2>Une cuisine de partage,<br><em>généreuse et plurielle.</em></h2>
+          <p>Chaque plat raconte un territoire, une saison, un savoir-faire et surtout le plaisir ivoirien de se retrouver.</p>
+        </div>
+        <div class="dish-grid">
+          <article class="dish-card dish-card--orange reveal"><div class="dish-icon"><span>AT</span></div><span>01</span><h3>Attiéké</h3><p>Semoule de manioc fermentée, servie avec poisson, viande, légumes ou sauce. Sa fabrication traditionnelle est inscrite à l’UNESCO depuis 2024.</p></article>
+          <article class="dish-card dish-card--gold reveal"><div class="dish-icon"><span>GA</span></div><span>02</span><h3>Garba</h3><p>Attiéké accompagné de thon frit, de piment, d’oignon et de tomate : un classique populaire de la vie urbaine ivoirienne.</p></article>
+          <article class="dish-card dish-card--green reveal"><div class="dish-icon"><span>FO</span></div><span>03</span><h3>Foutou</h3><p>Banane plantain, igname ou manioc pilé, souvent accompagné d’une sauce graine, claire ou arachide.</p></article>
+          <article class="dish-card dish-card--red reveal"><div class="dish-icon"><span>KE</span></div><span>04</span><h3>Kédjénou</h3><p>Cuisson lente de volaille ou de viande à l’étouffée avec légumes et aromates, traditionnellement dans un canari.</p></article>
+          <article class="dish-card dish-card--leaf reveal"><div class="dish-icon"><span>PL</span></div><span>05</span><h3>Placali</h3><p>Pâte souple de manioc fermenté, appréciée avec différentes sauces, notamment gombo ou graine.</p></article>
+          <article class="dish-card dish-card--sun reveal"><div class="dish-icon"><span>AL</span></div><span>06</span><h3>Alloco</h3><p>Banane plantain frite, dorée et moelleuse, dégustée seule ou avec œuf, poisson, viande et piment.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <section class="section library-section" id="bibliotheque">
+      <div class="container">
+        <div class="library-heading reveal">
+          <div><p class="eyebrow eyebrow--dark"><span></span> Bibliothèque culturelle</p><h2>Explorer par thème.</h2></div>
+          <label class="culture-search"><span aria-hidden="true">⌕</span><input id="culture-search" type="search" placeholder="Rechercher un lieu, un plat, une tradition…"><span class="sr-only">Rechercher dans la bibliothèque culturelle</span></label>
+        </div>
+        <div class="filter-bar" role="group" aria-label="Filtrer les contenus">
+          <button class="filter-button active" type="button" data-filter="all">Tout voir</button>
+          <button class="filter-button" type="button" data-filter="arts">Arts &amp; savoir-faire</button>
+          <button class="filter-button" type="button" data-filter="traditions">Danses &amp; fêtes</button>
+          <button class="filter-button" type="button" data-filter="nature">Nature</button>
+          <button class="filter-button" type="button" data-filter="histoire">Histoire</button>
+        </div>
+        <div class="knowledge-grid" id="knowledge-grid">
+          <article class="knowledge-card" data-category="arts" data-search="toile korhogo sénoufo peinture artisanat"><span>Arts</span><h3>Les toiles de Korhogo</h3><p>Sur une toile de coton, des motifs végétaux, animaux et scènes de la vie quotidienne composent un langage graphique immédiatement reconnaissable.</p><small>Nord • Korhogo</small></article>
+          <article class="knowledge-card" data-category="arts" data-search="pagne tissage baoulé sénoufo dan métiers"><span>Savoir-faire</span><h3>Le tissage du pagne</h3><p>Bandes de coton, couleurs et motifs sont assemblés selon des techniques transmises entre maîtres tisserands et apprentis.</p><small>Plusieurs régions</small></article>
+          <article class="knowledge-card" data-category="arts" data-search="masques dan wê gouro sculpture bois"><span>Arts</span><h3>L’art des masques</h3><p>Les masques ne sont pas de simples objets décoratifs : selon les communautés, ils prennent sens avec le costume, la musique et la performance.</p><small>Ouest &amp; Centre-Ouest</small></article>
+          <article class="knowledge-card" data-category="arts" data-search="balafon instrument musique bois sénoufo"><span>Musique</span><h3>Le balafon</h3><p>Ses lames de bois et ses résonateurs produisent une musique qui accompagne fêtes, récits, danses et rencontres communautaires.</p><small>Nord</small></article>
+          <article class="knowledge-card" data-category="traditions" data-search="zaouli gouro danse masque bouaflé zuénoula"><span>Danse</span><h3>Le Zaouli</h3><p>Masque, musique et danse populaire gouro se rencontrent dans une performance connue pour la précision et la rapidité de ses pas.</p><small>Centre-Ouest</small></article>
+          <article class="knowledge-card" data-category="traditions" data-search="gbofe afounkaha tagbana trompes musique"><span>Musique</span><h3>Le Gbofe</h3><p>À Afounkaha, le mot désigne les trompes traversières mais aussi les chants, la musique et les danses qui leur sont associés.</p><small>Centre-Nord</small></article>
+          <article class="knowledge-card" data-category="traditions" data-search="igname fête akan agni abron baoulé récolte"><span>Célébration</span><h3>Les fêtes de l’igname</h3><p>Dans plusieurs communautés akan, elles marquent le début d’un nouveau cycle, remercient pour les récoltes et renforcent les liens sociaux.</p><small>Est &amp; Centre</small></article>
+          <article class="knowledge-card" data-category="traditions" data-search="popo carnaval bonoua abouré fête"><span>Festival</span><h3>Le Popo Carnaval</h3><p>À Bonoua, défilés, danses, compétitions et rencontres donnent une forme contemporaine à une grande célébration abouré.</p><small>Sud • Bonoua</small></article>
+          <article class="knowledge-card" data-category="nature" data-search="taï forêt chimpanzé biodiversité parc"><span>Nature</span><h3>La forêt de Taï</h3><p>Ce vaste massif forestier protège une biodiversité remarquable et constitue un témoin essentiel des forêts tropicales ouest-africaines.</p><small>Sud-Ouest</small></article>
+          <article class="knowledge-card" data-category="nature" data-search="comoé parc fleuve savane forêt biodiversité"><span>Nature</span><h3>Le parc de la Comoé</h3><p>La rencontre de la savane, du fleuve et d’îlots forestiers crée des habitats variés dans l’un des plus grands espaces protégés d’Afrique de l’Ouest.</p><small>Nord-Est</small></article>
+          <article class="knowledge-card" data-category="nature" data-search="mont nimba montagne tonkpi biodiversité réserve"><span>Nature</span><h3>Le mont Nimba</h3><p>Le massif transfrontalier se distingue par son relief, ses prairies d’altitude et des espèces adaptées à des milieux très particuliers.</p><small>Ouest</small></article>
+          <article class="knowledge-card" data-category="nature" data-search="banco abidjan forêt parc national randonnée"><span>Nature</span><h3>Le parc national du Banco</h3><p>Une forêt tropicale au cœur de l’agglomération d’Abidjan, importante pour l’éducation environnementale et la respiration de la ville.</p><small>Sud • Abidjan</small></article>
+          <article class="knowledge-card" data-category="histoire" data-search="grand bassam nzima quartier france colonial histoire"><span>Histoire</span><h3>Grand-Bassam</h3><p>La ville historique rassemble héritage urbain colonial, histoire portuaire et présence vivante du quartier N’zima.</p><small>Sud-Est</small></article>
+          <article class="knowledge-card" data-category="histoire" data-search="mosquées soudanaises kong tengréla kouto samatiguila sorobango"><span>Architecture</span><h3>Les mosquées en terre du Nord</h3><p>Leurs murs en terre, contreforts et minarets témoignent d’une architecture soudanaise adaptée aux matériaux et au climat locaux.</p><small>Nord &amp; Nord-Est</small></article>
+          <article class="knowledge-card" data-category="histoire" data-search="abidjan modernité ponts lagune culture urbaine"><span>Ville</span><h3>Abidjan, capitale culturelle</h3><p>Musique, mode, arts visuels, humour et gastronomie y composent une scène contemporaine qui rayonne bien au-delà du pays.</p><small>Sud</small></article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>Aucun contenu ne correspond à cette recherche.</p>
+      </div>
+    </section>
+
+    <section class="section culture-section" id="cultures">
+      <div class="culture-glow"></div>
+      <div class="container">
+        <div class="culture-intro reveal">
+          <p class="eyebrow"><span></span> Histoires à partager</p>
+          <h2>Une culture se vit<br><em>autant qu’elle se raconte.</em></h2>
+        </div>
+
+        <div class="story-grid">
+          <article class="story story--large reveal">
+            <div class="story-visual story-visual--mask" aria-hidden="true">
+              <svg viewBox="0 0 360 360">
+                <path d="M180 28C112 28 75 83 82 153c7 72 44 146 98 174 54-28 91-102 98-174 7-70-30-125-98-125Z" fill="none" stroke="currentColor" stroke-width="10"/>
+                <path d="m180 49-35 89 35 30 35-30-35-89Zm-64 105 42 20-46 25m132-45-42 20 46 25M151 248l29 32 29-32" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="132" cy="201" r="12" fill="currentColor"/><circle cx="228" cy="201" r="12" fill="currentColor"/>
+              </svg>
+              <span class="story-index">01</span>
+            </div>
+            <div class="story-copy">
+              <p>Arts &amp; symboles</p>
+              <h3>Quand les objets deviennent mémoire</h3>
+              <a href="#regions" aria-label="Découvrir les arts et symboles">Découvrir <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="story reveal">
+            <div class="story-visual story-visual--food" aria-hidden="true">
+              <span class="bowl"><i></i></span>
+              <span class="story-index">02</span>
+            </div>
+            <div class="story-copy">
+              <p>Saveurs</p>
+              <h3>Des recettes qui rassemblent</h3>
+              <a href="#regions" aria-label="Découvrir les saveurs">Découvrir <span>↗</span></a>
+            </div>
+          </article>
+
+          <article class="story reveal">
+            <div class="story-visual story-visual--textile" aria-hidden="true">
+              <div class="textile-pattern"></div>
+              <span class="story-index">03</span>
+            </div>
+            <div class="story-copy">
+              <p>Savoir-faire</p>
+              <h3>Le geste transmis de génération en génération</h3>
+              <a href="#regions" aria-label="Découvrir les savoir-faire">Découvrir <span>↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="agenda reveal">
+          <div class="agenda-intro">
+            <p class="eyebrow"><span></span> Au fil de l’année</p>
+            <h3>Des rendez-vous qui font vivre les territoires.</h3>
+            <p>Les périodes exactes varient selon les éditions et les calendriers communautaires.</p>
+          </div>
+          <div class="agenda-list">
+            <article><span>Abidjan</span><h4>FEMUA</h4><p>Musiques urbaines, rencontres et actions sociales.</p></article>
+            <article><span>Bonoua</span><h4>Popo Carnaval</h4><p>Défilés, patrimoine abouré et festivités populaires.</p></article>
+            <article><span>Man</span><h4>Fêtes des masques</h4><p>Danses, performances et transmission des traditions.</p></article>
+            <article><span>Est &amp; Centre</span><h4>Fêtes de l’igname</h4><p>Récolte, gratitude, mémoire et nouveau cycle.</p></article>
+          </div>
+        </div>
+
+        <div class="newsletter reveal">
+          <div>
+            <p class="eyebrow"><span></span> Le carnet BELLIVOIRE</p>
+            <h3>Recevez une histoire ivoirienne chaque mois.</h3>
+          </div>
+          <form class="newsletter-form" id="newsletter-form">
+            <label class="sr-only" for="email">Votre adresse e-mail</label>
+            <input id="email" name="email" type="email" placeholder="votre@email.com" autocomplete="email" required>
+            <button type="submit" aria-label="S’inscrire à la newsletter">→</button>
+          </form>
+          <p class="form-message" id="form-message" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-main">
+      <a class="brand brand--footer" href="#accueil">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark__b">B</span><span class="brand-mark__dot"></span></span>
+        <span class="brand-name">BELLIVOIRE</span>
+      </a>
+      <p>Valoriser, transmettre et faire rayonner<br>les cultures de Côte d’Ivoire.</p>
+      <div class="footer-links">
+        <a href="#regions">Régions</a><a href="#villes">Villes</a><a href="#patrimoine">Patrimoine</a><a href="#saveurs">Saveurs</a><a href="#bibliotheque">Bibliothèque</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 BELLIVOIRE</span>
+      <span>Fait avec fierté en Côte d’Ivoire <i aria-hidden="true">●</i><i aria-hidden="true">●</i><i aria-hidden="true">●</i></span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
